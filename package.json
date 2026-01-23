@@ -1,0 +1,26 @@
+{
+  "name": "express_from_scratch",
+  "version": "1.0.0",
+  "description": "This is a project purely made for me to practice Express.JS without any other non-required technologies. I want to know the ins and outs of Express JS, be able to explain it well, and use it in the future without needing a tutorial.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoltenBeeper/Express-From-Scratch.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoltenBeeper/Express-From-Scratch/issues"
+  },
+  "homepage": "https://github.com/BoltenBeeper/Express-From-Scratch#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
