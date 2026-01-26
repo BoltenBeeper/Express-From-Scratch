@@ -7,13 +7,31 @@ DEPENDENCIES:
  - Express JS "npm i express"
  - Nodemon "npm i --save-dev nodemon"
 
-List of steps I did to make the project:
- - Terminal Setup
-  1. Initialized with "git init" and subsequent steps to properly link my project to this public repository
-  2. "npm init -y" for default Node configuration
-  3. "npm i express" installing express (duh)
-  4. "npm i --save-dev nodemon" to install Nodemon for easier testing without manual refresh '--save-dev'ed to make it a necessary dependency
+File map:
+ - ejs_pages: Pages that use the ejs file format. (Dynamic HTML that changes based on server information) (Non-standard naming)
+ - public: All static files (vanilla HTML, CSS and JS) that typically for non-express projects. (Standard naming)
+ - routes: Express JS files that contian the logic for processing requests sent and recieved from different URL routes. (Ex.: "./users/new") (Standard naming)
+ - .gitignore: Containes names of files/folders for the git service to ignore when pushing to the cloud. (Necessary naming)
+ - package.json: JSON data containing project and dependency information. (Automatically created from node.js)
+ - README.md: This text file. Notes from me about how the project is made with necessary information for replication. (Necessary naming)
+ - server.js: Primary JS file with server setup logic. (Standard naming)
 
+ - node_modules (automatically added with express.js): Folder with module files coming from node, necessary for installed node packages.
+ - package-lock.json (automatically added with express.js): Mode in-depth JSON data specifically detailing to node what dependencies to use from node_modules.
+
+
+
+List of steps I did to make the project:
+ - Terminal setup
+  1. Initialized with "git init" and subsequent steps to properly link my project to this public repository.
+  2. "npm init -y" for default Node configuration.
+  3. "npm i express" installing express. (Duh)
+  4. "npm i --save-dev nodemon" to install Nodemon for easier testing without manual refresh '--save-dev'ed to make it a necessary dependency.
+  5. "npm i ejs" to allow ejs file support. (Dynamic HTML that changes based on server information)
+ - Folder organization
+  1. routes
+  2. public
+  3. ejs_pages
 
 Sources:
- - Express JS basics video: https://www.youtube.com/watch?v=SccSCuHhOw0
+ - Express JS basics video (Web Dev Simplified): https://www.youtube.com/watch?v=SccSCuHhOw0
