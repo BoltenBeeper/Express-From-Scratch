@@ -6,6 +6,7 @@ DEPENDENCIES:
  - Node JS "npm init -y"
  - Express JS "npm i express"
  - Nodemon "npm i --save-dev nodemon"
+ - EJS "npm i ejs"
 
 File map:
  - ejs_pages: Pages that use the ejs file format. (Dynamic HTML that changes based on server information) (Non-standard naming)
