@@ -9,9 +9,9 @@ DEPENDENCIES:
  - EJS "npm i ejs"
 
 File map:
- - ejs_pages: Pages that use the ejs file format. (Dynamic HTML that changes based on server information) (Non-standard naming)
  - public: All static files (vanilla HTML, CSS and JS) that typically for non-express projects. (Standard naming)
  - routes: Express JS files that contian the logic for processing requests sent and recieved from different URL routes. (Ex.: "./users/new") (Standard naming)
+ - views: Pages that use the ejs file format. (Dynamic HTML that changes based on server information) (Necessary naming)
  - .gitignore: Containes names of files/folders for the git service to ignore when pushing to the cloud. (Necessary naming)
  - package.json: JSON data containing project and dependency information. (Automatically created from node.js)
  - README.md: This text file. Notes from me about how the project is made with necessary information for replication. (Necessary naming)
