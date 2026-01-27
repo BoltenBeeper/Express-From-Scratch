@@ -9,4 +9,8 @@ app.get("/", (req, res) => {
   res.render("home", {name: "Beebs"})
 })
 
+const userRouter = require("./routes/users")
+
+app.use("/users", userRouter)
+
 app.listen(3000)
