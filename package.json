@@ -1,6 +1,6 @@
 {
   "name": "express_from_scratch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a project purely made for me to practice Express.JS without any other non-required technologies. I want to know the ins and outs of Express JS, be able to explain it well, and use it in the future without needing a tutorial.",
   "main": "index.js",
   "scripts": {

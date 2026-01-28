@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New User</title>
+  </head>
+  <body>
+    <form action="/users/new" method="POST">
+      <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>">
+      </div>
+      <button type="submit"></button>
+
+    </form>
+  </body>
+</html>

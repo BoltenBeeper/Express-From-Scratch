@@ -2,6 +2,11 @@
 
 This is a project purely made for me to practice Express.JS without any other non-required technologies. I want to know the ins and outs of Express JS, be able to explain it well, and use it in the future without needing a tutorial.
 
+Technologies/concepts used:
+ - Express JS
+ - Custom JSON formating
+ - Data structures
+
 DEPENDENCIES: 
  - Node JS "npm init -y"
  - Express JS "npm i express"
@@ -20,7 +25,14 @@ File map:
  - node_modules (automatically added with express.js): Folder with module files coming from node, necessary for installed node packages.
  - package-lock.json (automatically added with express.js): Mode in-depth JSON data specifically detailing to node what dependencies to use from node_modules.
 
-
+Available URLs/Requests:
+ - "/" (GET): Home page. Basically just says hi.
+ - "/users" (GET): Displays a list of all created users.
+ - "/users/new" (GET): A form to create a new user.
+ - "/users/new" (POST): Creates a new user object from form data and adds it to users list.
+ - ".users/[user ID] (GET)" Displays users page with their info from ID in URL.
+ - ".users/[user ID] (PUT)" Updates user with the given ID's info'.
+ - ".users/[user ID] (DELETE)" Deletes the user with the given ID.
 
 List of steps I did to make the project:
  - Terminal setup
