@@ -5,7 +5,7 @@ router.use(logUrl)
 
 router.route("/")
 .get((req, res) => {
-  res.send("List of users")
+  res.render("users/users_list", {users_list: users})
 })
 .post((req, res) => {
   res.send(`USER: ${req.body.username} CREATED`)
@@ -18,7 +18,7 @@ router.get("/new", (req, res) => {
 
 router.post("/new", (req, res) => {
   let users = []
-  const validUserInfo = false // Variables just to test validation scenario
+  const validUserInfo = true // Variables just to test validation scenario
   const newUserId = 68
   if (validUserInfo) {
     users.push({ username: req.body.username })
@@ -34,7 +34,7 @@ router.post("/new", (req, res) => {
 
 router.route("/:userId")
 .get((req, res) => {
-  res.send(`Get user with ID: ${req.params.userId}`)
+  res.render("users/user_profile", {userId: req.params.userId})
 })
 .put((req, res) => {
   res.send(`Update user with ID: ${req.params.userId}`)

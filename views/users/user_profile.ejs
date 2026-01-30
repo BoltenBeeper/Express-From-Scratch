@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create New User</title>
+    <title>Express From Scratch</title>
     <link rel="stylesheet" href="/general.css">
     <link rel="stylesheet" href="/nav_bar.css">
   </head>
   <body>
-    
+
     <div class="nav-bar">
       <div class="nav-buttons">
         <a href="/">HOME</a>
@@ -17,13 +17,7 @@
     </div>
 
     <div class="main-page-content">
-      <form action="/users/new" method="POST">
-        <div>
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>">
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <p>Get user with ID: <%= locals.userId || "[No ID given]" %></p>
     </div>
   </body>
 </html>
