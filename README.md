@@ -27,6 +27,7 @@ File map:
 
  - node_modules (automatically added with express.js): Folder with module files coming from node, necessary for installed node packages.
  - package-lock.json (automatically added with express.js): Mode in-depth JSON data specifically detailing to node what dependencies to use from node_modules.
+ - private: A folder for sensitive data. (currently user data)
 
 Available URLs/Requests:
  - "/" (GET): Home page. Basically just says hi.

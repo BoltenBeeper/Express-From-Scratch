@@ -19,10 +19,10 @@ router.get("/new", (req, res) => {
 
 router.post("/new", async (req, res) => {
   const validUserInfo = true // Variables just to test validation scenario
-  const newUserId = 68
   if (validUserInfo) {
     users = JSON.parse(req.users)
-    users.push({ username: req.body.username })
+    newUserId = users.length
+    users.push({ id: newUserId, username: req.body.username })
     console.table(users)
     try {
       await fs.writeFile(path.join(__dirname, "..", "private", "users.json"), JSON.stringify(users))
@@ -33,7 +33,7 @@ router.post("/new", async (req, res) => {
     res.redirect(`/users/${newUserId}`)
   } else {
     console.log("Failed validation check... returning to user form.")
-  res.render("users/new", {inputtedUsername: req.body.username})
+  res.render("/new", {inputtedUsername: req.body.username})
   }
 })
 
