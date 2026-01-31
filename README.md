@@ -4,8 +4,11 @@ This is a project purely made for me to practice Express.JS without any other no
 
 Technologies/concepts used:
  - Express JS
- - Custom JSON formating
+ - JSON formating/parsing
  - Data structures
+ - JS promises
+ - JS async, await
+ - Node File System (fs)
 
 DEPENDENCIES: 
  - Node JS "npm init -y"

@@ -1,29 +1,35 @@
 const express = require("express")
 const router = express()
+const fs = require('fs').promises
+const path = require('path')
 
-let users = []
+router.use(getUsers)
 
 router.route("/")
-.get((req, res) => {
-  res.render("users/users_list", {users_list: JSON.stringify(users)})
+.get(getUsers, async (req, res) => {
+  res.render("users/users_list", {users_list: JSON.stringify(JSON.parse(req.users))})
 })
 .post((req, res) => {
   res.send(`USER: ${req.body.username} CREATED`)
 })
 
-
 router.get("/new", (req, res) => {
   res.render("users/new", {inputtedUsername: ""})
 })
 
-router.post("/new", (req, res) => {
+router.post("/new", async (req, res) => {
   const validUserInfo = true // Variables just to test validation scenario
   const newUserId = 68
   if (validUserInfo) {
+    users = JSON.parse(req.users)
     users.push({ username: req.body.username })
-    console.log("User enter data is valid.")
-    console.log(`List of users: ${JSON.stringify(users)}`)
     console.table(users)
+    try {
+      await fs.writeFile(path.join(__dirname, "..", "private", "users.json"), JSON.stringify(users))
+    } catch (err) {
+      console.log(err)
+      res.status(500).send("Error reading data")
+    }
     res.redirect(`/users/${newUserId}`)
   } else {
     console.log("Failed validation check... returning to user form.")
@@ -46,5 +52,16 @@ router.param("userId", (req, res, next, id) => {
   console.log(`Middleware (router.param) ran with user ID: ${id}`)
   next()
 })
+
+async function getUsers(req, res, next) {
+  try {
+      req.users = await fs.readFile(path.join(__dirname, "..", "private", "users.json"), "utf8")
+      next()
+  } catch (err) {
+      console.error(err)
+      res.status(500).send("Error reading data")
+      next()
+  }
+}
 
 module.exports = router
