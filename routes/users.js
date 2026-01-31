@@ -1,11 +1,11 @@
 const express = require("express")
 const router = express()
 
-router.use(logUrl)
+let users = []
 
 router.route("/")
 .get((req, res) => {
-  res.render("users/users_list", {users_list: users})
+  res.render("users/users_list", {users_list: JSON.stringify(users)})
 })
 .post((req, res) => {
   res.send(`USER: ${req.body.username} CREATED`)
@@ -17,7 +17,6 @@ router.get("/new", (req, res) => {
 })
 
 router.post("/new", (req, res) => {
-  let users = []
   const validUserInfo = true // Variables just to test validation scenario
   const newUserId = 68
   if (validUserInfo) {
@@ -47,10 +46,5 @@ router.param("userId", (req, res, next, id) => {
   console.log(`Middleware (router.param) ran with user ID: ${id}`)
   next()
 })
-
-function logUrl(req, res, next) {
-  console.log(`Visited: ${req.originalUrl}`)
-  next()
-}
 
 module.exports = router
