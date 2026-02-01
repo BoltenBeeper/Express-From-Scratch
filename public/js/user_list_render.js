@@ -11,7 +11,7 @@ for (i in usersList) {
   newListItem.innerHTML = `${JSON.stringify(usersList[i].id)}. `
   let newLink = document.createElement("a")
   newLink.href = `/users/${i}`
-  newLink.innerHTML = `${JSON.stringify(usersList[i].username)}`
+  newLink.innerHTML = usersList[i].username
   newListItem.appendChild(newLink)
   userListDiv.appendChild(newListItem)
   console.log(usersList[i])

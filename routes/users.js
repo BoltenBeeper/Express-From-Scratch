@@ -21,25 +21,38 @@ router.post("/new", async (req, res) => {
   const validUserInfo = true // Variables just to test validation scenario
   if (validUserInfo) {
     users = JSON.parse(req.users)
-    newUserId = users.length
-    users.push({ id: newUserId, username: req.body.username })
+
+    newUser = {}
+    newUser.id = users.length
+    newUser.username = req.body.username
+    newUser.password = req.body.password
+
+    users.push(newUser)
     console.table(users)
     try {
-      await fs.writeFile(path.join(__dirname, "..", "private", "users.json"), JSON.stringify(users))
+      await fs.writeFile(path.join(__dirname, "..", "private", "users.json"), JSON.stringify(users, null, "\t"))
     } catch (err) {
       console.log(err)
-      res.status(500).send("Error reading data")
+      res.status(500).send("Error writing data")
     }
-    res.redirect(`/users/${newUserId}`)
+    res.redirect(`/users/${newUser.id}`)
   } else {
     console.log("Failed validation check... returning to user form.")
   res.render("/new", {inputtedUsername: req.body.username})
   }
 })
 
+router.route("/admin")
+.get((req, res) => {
+  res.render("/users/admin")
+})
+
 router.route("/:userId")
 .get((req, res) => {
-  res.render("users/user_profile", {userId: req.params.userId})
+  user = {}
+  user.userId = req.params.userId
+  user.userUsername = JSON.parse(req.users)[req.params.userId].username
+  res.render("users/profile", user)
 })
 .put((req, res) => {
   res.send(`Update user with ID: ${req.params.userId}`)

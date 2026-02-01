@@ -9,7 +9,7 @@
 
     <div class="nav-bar">
       <div class="nav-buttons">
-        <a href="../">HOME</a>
+        <a href="/">HOME</a>
         <a href="/users">User List</a>
         <a href="./new">Create User</a>
         <form action=""></form>
@@ -17,7 +17,8 @@
     </div>
 
     <div class="main-page-content">
-      <p>Get user with ID: <%= locals.userId || "[No ID given]" %></p>
+      <p>Username: <%= locals.userUsername || "[No Username found]" %></p>
+      <p>User ID: <%= locals.userId || "[No ID found]" %></p>
     </div>
   </body>
 </html>
