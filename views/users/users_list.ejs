@@ -20,7 +20,8 @@
       <ol id="user-list-container" data-users-list=<%= locals.users_list || "[No list given]" %>></ol>
     </div>
 
-  <script src="/js/user_list_render.js"></script>
+    <script type="module" src="/js/user_list_render.js"></script> <!--"type=module" is necessary for both exporting and importing functions from file to file. -->
+    <script type="module" src="/js/user_validator.js"></script>
 
   </body>
 </html>

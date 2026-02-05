@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express()
-const fs = require('fs').promises
-const path = require('path')
+const fs = require("fs").promises
+const path = require("path")
 
 router.use(getUsers)
 
@@ -44,7 +44,7 @@ router.post("/new", async (req, res) => {
 
 router.route("/admin")
 .get((req, res) => {
-  res.render("/users/admin")
+  res.render("users/admin")
 })
 
 router.route("/:userId")

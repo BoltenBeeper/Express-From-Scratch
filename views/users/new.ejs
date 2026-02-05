@@ -20,11 +20,15 @@
       <form action="/users/new" method="POST">
         <div>
           <label for="username">Username</label>
-          <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>">
+          <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>" required>
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" value="<%= locals.inputtedUsername %>">
+          <input type="password" name="password" id="password" value="<%= locals.inputtedUsername %>" required>
+        </div>
+        <div>
+          <label for="phoneNumbner">Phone #</label>
+          <input type="tel" name="phoneNumbner" id="phoneNumbner" value="<%= locals.inputtedUsername %>">
         </div>
         <button type="submit">Submit</button>
       </form>
