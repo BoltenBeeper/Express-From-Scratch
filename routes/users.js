@@ -6,8 +6,8 @@ const path = require("path")
 router.use(getUsers)
 
 router.route("/")
-.get(getUsers, async (req, res) => {
-  res.render("users/users_list", {users_list: JSON.stringify(JSON.parse(req.users))})
+.get(async (req, res) => {
+  res.json(JSON.parse(req.users))
 })
 .post((req, res) => {
   res.send(`USER: ${req.body.username} CREATED`)
@@ -26,6 +26,8 @@ router.post("/new", async (req, res) => {
     newUser.id = users.length
     newUser.username = req.body.username
     newUser.password = req.body.password
+    newUser.email = req.body.email
+    newUser.phoneNumbner = req.body.phoneNumbner
 
     users.push(newUser)
     console.table(users)

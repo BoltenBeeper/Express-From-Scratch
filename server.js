@@ -2,6 +2,7 @@ console.log('"server.js" script running...')
 
 const express = require("express")
 const app = express()
+const fs = require("fs").promises
 const path = require("path")
 
 app.use(express.static("public")) // Allows viewing of static HTML pages (stored in the public folder)
@@ -14,17 +15,29 @@ app.set("view engine", "ejs") // Allows viewing of dynamic EJS pages (stored in 
 
 app.use(logUrl)
 
-app.get("/", (req, res) => {
-  res.render("home", {name: "Beebs"})
-})
-
 const userRouter = require("./routes/users")
 
 app.use("/users", userRouter)
 
+app.get("/", getUsers, async (req, res) => {
+  // res.render("home", {name: "Beebs"})
+  res.render("users/users_list", {users_list: req.users})
+})
+
 function logUrl(req, res, next) {
   console.log(`Visited: ${req.originalUrl}`)
   next()
+}
+
+async function getUsers(req, res, next) {
+  try {
+      req.users = await fs.readFile(path.join(__dirname, "private", "users.json"), "utf8")
+      next()
+  } catch (err) {
+      console.error(err)
+      res.status(500).send("Error reading data")
+      next()
+  }
 }
 
 app.listen(3000)

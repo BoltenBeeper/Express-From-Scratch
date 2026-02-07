@@ -10,18 +10,27 @@
     <div class="nav-bar">
       <div class="nav-buttons">
         <a href="/">HOME</a>
-        <a href="./">User List</a>
-        <a href="./new">Create User</a>
+        <!-- <a href="/users">User List</a> -->
+        <a href="/users/new">Create User</a>
         <form action=""></form>
       </div>
     </div>
 
     <div class="main-page-content">
+      <div class="search-container">
+        <form action="/users" method="get">
+          <div class="search-bar">
+            <label for="search">Find user:</label>
+            <input type="text" placeholder="Search">
+            <button type="submit">SEARCH</button>
+          </div>
+        </form>
+      </div>
       <ol id="user-list-container" data-users-list=<%= locals.users_list || "[No list given]" %>></ol>
     </div>
 
     <script type="module" src="/js/user_list_render.js"></script> <!--"type=module" is necessary for both exporting and importing functions from file to file. -->
-    <script type="module" src="/js/user_validator.js"></script>
+    <script type="module" src="/js/user_validate.js"></script>
 
   </body>
 </html>

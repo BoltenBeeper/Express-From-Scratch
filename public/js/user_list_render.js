@@ -1,6 +1,6 @@
-import getAllUserData from "./user_validator.js"
+import getAllUserData from "./user_validate.js"
 
-console.log("User List script connected!")
+console.log("user_list_render.js script connected!")
 
 const userListDiv = document.getElementById("user-list-container")
 // let usersList = JSON.parse(userListDiv.dataset.usersList) NOTE: Old method passed JSON data as a string directly to a data attribute of one of the HTML elements.

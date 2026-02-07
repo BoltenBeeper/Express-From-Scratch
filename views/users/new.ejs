@@ -10,8 +10,8 @@
     <div class="nav-bar">
       <div class="nav-buttons">
         <a href="/">HOME</a>
-        <a href="/users">User List</a>
-        <a href="./new">Create User</a>
+        <!-- <a href="/users">User List</a> -->
+        <a href="/users/new">Create User</a>
         <form action=""></form>
       </div>
     </div>
@@ -24,11 +24,15 @@
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" value="<%= locals.inputtedUsername %>" required>
+          <input type="password" name="password" id="password" value="<%= locals.inputtedPassword %>" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" value="<%= locals.inputtedEmail %>">
         </div>
         <div>
           <label for="phoneNumbner">Phone #</label>
-          <input type="tel" name="phoneNumbner" id="phoneNumbner" value="<%= locals.inputtedUsername %>">
+          <input type="tel" name="phoneNumbner" id="phoneNumbner" value="<%= locals.inputtedPhone %>">
         </div>
         <button type="submit">Submit</button>
       </form>

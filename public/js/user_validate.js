@@ -1,4 +1,4 @@
-console.log("User validation script connected!")
+console.log("user_validate.js script connected!")
 
 async function getAllUserData() {
   try {
