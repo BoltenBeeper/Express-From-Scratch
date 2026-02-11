@@ -16,6 +16,9 @@ DEPENDENCIES:
  - Nodemon "npm i --save-dev nodemon"
  - EJS "npm i ejs"
 
+ Non necessary:
+  - httpYac: [Extension] | Used for testing HTTP requests through .http file type.
+
 File map:
  - public: All static files (vanilla HTML, CSS and JS) that typically for non-express projects. (Standard naming)
  - routes: Express JS files that contian the logic for processing requests sent and recieved from different URL routes. (Ex.: "./users/new") (Standard naming)

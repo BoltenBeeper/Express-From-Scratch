@@ -17,7 +17,8 @@
     </div>
 
     <div class="main-page-content">
-      <form action="/users/admin" method="POST">
+      <form action="/users" method="get">
+        <h1>Delete User</h1>
         <div>
           <label for="username">Username</label>
           <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>">
