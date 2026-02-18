@@ -7,7 +7,33 @@ router.use(getUsers)
 
 router.route("/")
 .get(async (req, res) => {
-  res.json(JSON.parse(req.users))
+
+  try {
+    requestedUserQuery = req.query
+    usersList = JSON.parse(req.users)
+
+    for (i in usersList) {
+      if (usersList[i].username == requestedUserQuery.username) {
+        var requetedUserId = usersList[i].id
+        break
+      }
+    }
+  } catch {
+    console.log("NO USERNAME GIVEN FOR SEARCH")
+  }
+
+  if (requestedUserQuery.username != undefined) {
+    console.log("Searching for user: " + requestedUserQuery.username)
+    if (requetedUserId != undefined) {
+      console.log("Redirecting to user with id: " + requetedUserId + "...")
+      res.redirect(`/users/${requetedUserId}`)
+    } else {
+      res.send("Woops! No id found for that username :/")
+    }
+  } else {
+    res.json(JSON.parse(req.users))
+  }
+
 })
 .post((req, res) => {
   res.send(`USER: ${req.body.username} CREATED`)
