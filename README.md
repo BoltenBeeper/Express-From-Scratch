@@ -33,8 +33,8 @@ File map:
  - private: A folder for sensitive data. (currently user data)
 
 Available URLs/Requests:
- - "/" (GET): Home page. Basically just says hi.
- - "/users" (GET): Displays a list of all created users.
+ - "/" (GET): Displays a list of all created users and allows searching.
+ - "/users" (GET): Displays all JSON user data. Can be queried to redirect to a specific user page.
  - "/users/new" (GET): A form to create a new user.
  - "/users/new" (POST): Creates a new user object from form data and adds it to users list.
  - ".users/[user ID] (GET)" Displays users page with their info from ID in URL.
