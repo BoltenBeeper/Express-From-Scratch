@@ -10,15 +10,15 @@
     <div class="nav-bar">
       <div class="nav-buttons">
         <a href="/">HOME</a>
-        <!-- <a href="/users">User List</a> -->
         <a href="/users/new">Create User</a>
-        <form action=""></form>
       </div>
     </div>
 
     <div class="main-page-content">
+      <h1>Delete User</h1>
+      <hr>
+      <br>
       <form action="/users" method="get">
-        <h1>Delete User</h1>
         <div>
           <label for="username">Username</label>
           <input type="text" name="username" id="username" value="<%= locals.inputtedUsername %>">
