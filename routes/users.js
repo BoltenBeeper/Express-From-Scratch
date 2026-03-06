@@ -46,7 +46,12 @@ router.get("/new", (req, res) => {
 router.post("/new", async (req, res) => {
   const validUserInfo = true // Variables just to test validation scenario
   if (validUserInfo) {
-    users = JSON.parse(req.users)
+
+    if (req.users) { // Checks if there are any users at all. (req.users should return as [] before this check if not.)
+      users = JSON.parse(req.users)
+    } else {
+      users = []
+    }
 
     newUser = {}
     newUser.id = users.length

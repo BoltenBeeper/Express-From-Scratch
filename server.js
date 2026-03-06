@@ -21,6 +21,14 @@ app.use("/users", userRouter)
 
 app.get("/", getUsers, async (req, res) => {
   // res.render("home", {name: "Beebs"})
+
+  // let testList = [1]
+  // if (checkIsList(testList)) {
+  //   res.render("error", {error: "No users were found! :'{"})
+  // } else {
+  //   console.log("FALSE!!!!")
+  // }
+
   res.render("users/users_list", {users_list: req.users})
 })
 
@@ -29,11 +37,20 @@ function logUrl(req, res, next) {
   next()
 }
 
+function checkIsList(listToCheck) {
+  console.log("List validation script running.")
+  if (listToCheck.length && listToCheck.length > 0) {
+    console.log("Data validated as a list!")
+    return true
+  }
+}
+
 async function getUsers(req, res, next) {
   try {
       req.users = await fs.readFile(path.join(__dirname, "private", "users.json"), "utf8")
       next()
   } catch (err) {
+      req.users = []
       console.error(err)
       res.status(500).send("Error reading data")
       next()

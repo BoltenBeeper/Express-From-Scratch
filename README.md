@@ -16,8 +16,27 @@ DEPENDENCIES:
  - Nodemon "npm i --save-dev nodemon"
  - EJS "npm i ejs"
 
- Non necessary:
-  - httpYac: [Extension] | Used for testing HTTP requests through .http file type.
+ Non-necessary:
+  - Live Server: [VSCode Extension] | Used for viewing html page in browser.
+  - httpYac: [VSCode Extension] | Used for testing HTTP requests through .http file type.
+
+# !!! STEPS TO START PROJECT !!!
+ - Download the project from Github repository (https://github.com/BoltenBeeper/Express-From-Scratch).
+ - Download the necessary listed dependencies.
+ - Create a folder called "private" inb the root directory (folder that this project is saved as) and, in it, create a file called "users.json".
+ - (Optional) Add some user data to the file formatted as a single list with as many user objects as you want such as the following example: 
+ "[
+	{
+		"id": 0,
+		"username": "VioletSylph"
+	},
+	{
+		"id": 1,
+		"username": "BoltenBeeper"
+	}
+]"
+ - Navigate to the project's folder in your computer's or built-in IDE terminal and run the command "npm run liveStart".
+ - Copy and paste "http://localhost:3000/" into your web browser's adress/URL bar.
 
 File map:
  - public: All static files (vanilla HTML, CSS and JS) that typically for non-express projects. (Standard naming)
@@ -41,7 +60,7 @@ Available URLs/Requests:
  - ".users/[user ID] (PUT)" Updates user with the given ID's info'.
  - ".users/[user ID] (DELETE)" Deletes the user with the given ID.
 
-List of steps I did to make the project:
+List of steps I did to set up the project:
  - Terminal setup
   1. Initialized with "git init" and subsequent steps to properly link my project to this public repository.
   2. "npm init -y" for default Node configuration.

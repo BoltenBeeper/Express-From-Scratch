@@ -12,7 +12,8 @@ async function getAllUserData() {
     return (data)
 
   } catch {
-    return "Error: user_validator.js could not reach JSON data."
+    return []
+    // return "Error: user_validator.js could not reach JSON data."
   }
 }
 
